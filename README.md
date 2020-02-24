@@ -1,7 +1,7 @@
 # travel-hub
-    I have made a travel agency website through php and mysql which consist of a CMS admin panel.In the homepage
-    there is a link to an about us page and at the bottom a link to the contact us page.There is a sidenavbar which all links to all the 
-same along with a link to the admin panel.
+    I have made a travel agency website through php and mysql which consist of a CMS admin panel.
+In the homepage there is a link to an about us page and at the bottom a link to the contact us page.
+There is a sidenavbar which all links to all the same along with a link to the admin panel.
     On clicking the Admin log in button an login form appears after validating which you are taken to admin panel
     Admin panel consist of two thingsblogs and contacts.All the recent blogs are linked there and on clicking them
 one can view the full blog.There is a link to add blog at the top on clickingit the webpage moves to add bllog page where
