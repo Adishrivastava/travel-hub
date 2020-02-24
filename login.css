@@ -1,0 +1,297 @@
+html
+    {
+        padding:0px;
+        margin:0px;
+        font-family: 'Righteous', cursive;
+        scroll-behavior: smooth;
+    }
+
+body
+    {
+        padding:0px;
+        margin:0px;
+    }
+
+.full
+    {
+        width:100%;
+        height:100vh;
+        background-image:url(images/london1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+.overlay
+    {
+        height:100vh;
+        width:100%;
+        position: absolute;
+        top:0vh;
+        /*background-image:linear-gradient(to bottom right,rgba(142, 17, 90),rgba(128, 0, 128),rgba(255, 0, 0));
+       */
+        background-color: black;
+        opacity: 0.80;
+    }
+
+.overlay2
+    {
+        height:100%;
+        width:100%;
+
+        /*background-image:linear-gradient(to bottom right,rgba(142, 17, 90),rgba(128, 0, 128),rgba(255, 0, 0));
+       */
+        background-color: black;
+        opacity: 0.80;
+    }    
+
+form
+    {
+        width:28vw;
+        z-index:2;
+        border-radius: 0vw;
+       /* border: 3px solid rgb(21, 103, 185);*/
+        margin-left: 33%;
+        position: relative;
+        top:7vh;
+        /*background-image:linear-gradient(to bottom right,rgba(142, 17, 90),rgba(128, 0, 128),rgba(255, 0, 0));
+        */
+        background-image:linear-gradient(to bottom,rgba(20, 6, 26, 0.451),rgba(9, 0, 17, 0.535));
+        padding-top:4vh;
+        padding-bottom:4vh;
+        padding-left:3vw;
+        padding-right:3vw;
+    }
+
+@media screen and (max-width:900px)
+    {
+        form    {
+            width:60%;
+            margin-left: 20%;
+        }
+    }
+
+#text
+    {
+        font-size:3em;
+        text-align: center;
+        color:white;
+        font-family: 'Righteous', cursive;
+    }
+
+@media screen and (max-width:400px)
+    {
+        #text   {
+            font-size: 1.5em;
+        }
+    }
+
+#socials
+    {
+        width:100%;
+        font-family: 'Comfortaa', cursive;
+    }
+
+#facebook
+    {
+    
+        height:5vh;
+        padding:1vh;
+        font-size: 0.8em;
+        color:white;
+        background-image:linear-gradient(to right,rgb(12, 43, 103),rgb(33, 25, 125));
+        
+        border-radius: 3.5vw;
+        border:none;
+        outline: none;
+        font-family: 'Righteous', cursive;
+    }
+
+#google
+    {
+        height:5vh;
+        padding:1vh;
+        font-size: 0.8em;
+        color:white;
+
+        background-image:linear-gradient(to right,rgb(84, 0, 18),rgb(92, 6, 25));
+        
+        border-radius: 3.5vw;
+        border:none;
+        float:right;
+        outline: none;
+        font-family: 'Righteous', cursive;
+    }
+
+@media screen and (max-width:800px)
+    {
+        #google {
+            float:none;
+            width:100%;
+            margin-top:2vh;
+        }
+
+        #facebook {
+            
+            width:100%;
+        }
+    }
+
+#google:hover
+    {
+        border:2px solid rgb(161, 19, 50);
+        color:rgb(161, 19, 50);
+        background-image:none;
+        background-color: transparent;
+        font-family: 'Righteous', cursive;
+    }
+
+#facebook:hover
+    {
+        border:2px solid rgb(59, 93, 171);
+        color:rgb(59, 93, 171);
+        background-image: none;
+        background-color: transparent;
+        font-family: 'Righteous', cursive;
+    }
+
+
+#or
+    {
+        height:10vh;
+        text-align: center;
+        color:white;
+        vertical-align: middle;
+        line-height: 12vh;
+    }
+
+input
+    {
+        font-size:1.3em;
+        margin-left:vw;
+        width:100%;
+        border-left:none;
+        border-top:none;
+        border-right: none;
+        border-bottom:1px solid whitesmoke;
+        color:rgb(236, 226, 226);
+        text-align: ;
+        outline:none !important;
+        background-color: transparent;
+    }
+
+input::placeholder
+    {
+        font-family: 'Comfortaa', cursive;
+        color:rgb(70, 37, 70);
+    }
+
+#etext
+    {
+        margin-top: 8vh;
+    }
+
+#pass
+    {
+        margin-top:6vh;
+    }
+
+#rem
+    {
+        margin-top:4vh;
+        color:white;
+        height:3vh;
+        vertical-align: middle;
+        line-height: 2.5vh;
+        font-size: 0.8em;
+    }
+
+#check
+    {
+        width:1vw;
+        float:left;
+    }
+
+#rem span
+    {
+        float: left;
+    }
+
+#login
+    {
+        background-image:linear-gradient(to right,rgb(46, 1, 91),rgb(59, 8, 103),rgb(100, 0, 128));
+        width:13vw;
+        height:6vh;
+        border-radius: 3vh;
+        /*border:2px solid rgb(200, 0, 255);*/
+        margin-top:4vh;
+        border: none;
+        margin-left:7.5vw;
+        font-size: 1.3em;
+        color:white;
+        font-weight:none;
+        outline: none;
+        font-family: 'Righteous', cursive;
+    }
+
+@media screen and (max-width:800px)
+    {
+        #login {
+           
+            margin-left: 10%;
+            margin-right: 10%;
+            width:80%;
+     
+        }
+    }
+
+#login:hover
+    {
+        border:2px solid rgb(102, 19, 161);
+        color:rgb(102, 19, 161);
+        background-image: none;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+#down
+    {
+        margin-top:7vh;
+        font-size: 1.5em;
+        height:5vh;
+        border-bottom: 1px solid whitesmoke;
+    }
+
+@media screen and (max-width:800px)
+{
+    #down span
+        {
+            font-size: 0.7em;
+        }
+}
+
+#left
+    {
+        float:left;
+    }
+
+#right
+    {
+        float:right;
+    }
+
+form a
+    {
+        text-decoration: none;
+        font-size: 0.8em;
+        color:rgb(245, 216, 170);
+    }
+
+.mess
+    {
+        position: absolute;
+        bottom: 5vh;
+        display: block;
+        margin: 0 auto;
+        background-color: brown;
+        font-size: 3em;
+    }
