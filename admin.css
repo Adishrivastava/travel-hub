@@ -13,11 +13,6 @@ body
     
     }
 
-.blogs
-    {
-        margin-top: 10vh;
-    }
-
 a
     {
         color: aquamarine;
@@ -31,27 +26,44 @@ a:active,a:focus,a:hover
     }
 
 
-.add
+.add-btn
     {
         cursor: pointer;
         background-color: none;
-        font-size: 3em;
-        padding:5px 25px 5px 25px;
+        font-size: 2em;
+        padding:0 10px 0 10px;
         margin-left: 10%;
-        border: 2px solid aqua;
+        border: 2px solid rgb(2, 113, 135);
+        transition:all 0.4s ease-out;
+        color:rgb(2, 113, 135);
+        font-weight:bold;
     }
 
-.add a
+.add-btn a
     {
-        color: brown;
         font-family: 'Didact Gothic','serif' ;
     }
 
-.add:hover,.add:focus
+.add-btn:hover,.add-btn:focus
     {
-        background-color: aqua;
+        background-color: rgb(2, 113, 135);
         color:white;
         outline: none;
+    }
+    
+.links
+    {
+        font-size:0.6em;
+        float:left;
+        color:white;
+        height:100%;
+        padding:15px 3vw 0 5vw;
+        display:none;
+    }
+    
+.active
+    {
+        color:rgb(70, 42, 207);
     }
 
 .topnav
@@ -62,15 +74,20 @@ a:active,a:focus,a:hover
         z-index: 2;
     }
 
-.topnav span
+.top-title
     {
         float: right;
         font-size: 3em;
         font-family: 'Playfair Display', 'serif';
         font-weight: bold;
-        padding:0px 20px 0 0;
-
+        width:30vw;
+        padding:10px 20px 0 10px;
+        text-align:right;
     }
+
+
+/* ----------------------------------------------------------------------
+left sidebar */
 
 .sidebar
     {
@@ -81,7 +98,8 @@ a:active,a:focus,a:hover
         top:0;
         left: 0;
         color: aliceblue;
-        background-color: rgb(27, 2, 51);
+        background-image:linear-gradient(to bottom right,rgb(20, 0, 26),rgb(76, 2, 108));
+        
         
     }
 
@@ -93,7 +111,7 @@ a:active,a:focus,a:hover
     margin-left:0;
     margin-right: 0;
     font-size: 1.8em;
-    color: aquamarine;
+    color: white;
     margin-top: 25vh;
 }
 
@@ -111,7 +129,7 @@ a:active,a:focus,a:hover
     {
         font-size: 2.5em;
         text-align: center;
-        font-family: 'Abril Fatface', 'serif';
+        font-family:'Righteous','serif';
         line-height: 8vh;
     }
 
@@ -124,6 +142,30 @@ a:active,a:focus,a:hover
         .sidebar ul    {
            font-size: 1em;
         }
+        
+        .sidebar    {
+            display:none;
+        }
+        
+        .topnav {
+            background-image:linear-gradient(to bottom right,rgb(20, 0, 26),rgb(76, 2, 108));
+        }
+        
+        .top-title    {
+            font-size:1.5em;
+            padding:0px 10px 0 0;
+            color:white;
+            font-weight:none;
+        }
+        
+        .add-btn    {
+            font-size:1em;
+            border-radius:3px;
+        }
+        
+        .links  {
+            display:block;
+        }
     }
 
 .full
@@ -133,6 +175,10 @@ a:active,a:focus,a:hover
         width: 99vw;
     }
 
+
+/* ----------------------------------------------------------------------------
+    blogs list with add btn*/
+    
 .blogs
     {
         padding-left: 10%;
@@ -141,40 +187,50 @@ a:active,a:focus,a:hover
 
 .isti
     {
-        color:green;
+        color:rgb(40, 5, 110);
         font-size: 3em;
         font-weight: bold;
         overflow-y: hidden;
+        font-weight:bold;
+        font-family:'Righteous','serif';
     }
 
-.blogs ol
+.blogs ul
     {
         margin-top: 5vh;
+       
     }
 
 .blogs li
     {
         
         line-height: 8vh;
-        
+        color:rgb(56, 0, 80);
+        margin-top:15px;
+    
+        background-image:linear-gradient(to right,rgb(160, 246, 223),white);
+        margin-right:10vh;
     }
 
-.tile
+.blogs li:hover
+    {
+        color:rgb(1, 39, 48);
+    }
+
+.title-blog
     {
         font-size: 2.5em;
-        color:rgb(56, 0, 80) !important;
+        color:purple;
     }
 
 .blogs small
     {
         font-size: 1.5em;
-
-        color: rgb(2, 79, 110);
+        
     }
 
 .blogs span
     {
-        font-size: 2.5em;
         margin-left: 10px;
         color: rgb(2, 79, 110);
     }
@@ -188,9 +244,34 @@ a:active,a:focus,a:hover
         background-image: linear-gradient(to right,black,rgb(233, 228, 228));
     }
 
+@media screen and (max-width:700px)
+    {
+        .full   {
+            padding-left:0;
+            padding-top:20%;
+        }
+        
+        .isti   {
+            font-size:2em;
+        }
+        
+        .title-blog {
+            font-size:1.5em;
+        }
+        .blogs small   {
+            font-size:1.2em;
+        }
+        
+        .blogs li   {
+            line-height:6vh;
+            background-color:rgb(250, 241, 199);
+        }
+    }
+    
+    
 
-
-/*  Blogs page css  */
+/* ------------------------------------------------------------------------------------
+    Blogs page css  */
 
 .full2
     {
@@ -203,7 +284,7 @@ a:active,a:focus,a:hover
         font-weight: bold;
         font-size: 3.5em;
         width:70%;
-       
+        overflow:hidden;
     }
 
 .date
@@ -278,6 +359,11 @@ a:active,a:focus,a:hover
         border-bottom: 2px solid black;
         outline: none;
         background-color: transparent;
+    }
+
+.add_new input:hover,.add_new input:active,.add_new input:focus
+    {
+       
     }
 
 .add_new textarea
