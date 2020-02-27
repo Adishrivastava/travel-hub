@@ -1,12 +1,21 @@
 # travel-hub
-    I have made a travel agency website through php and mysql which consist of a CMS admin panel.
-In the homepage there is a link to an about us page and at the bottom a link to the contact us page.
-There is a sidenavbar which all links to all the same along with a link to the admin panel.
-    On clicking the Admin log in button an login form appears after validating which you are taken to admin panel
-    Admin panel consist of two thingsblogs and contacts.All the recent blogs are linked there and on clicking them
-one can view the full blog.There is a link to add blog at the top on clickingit the webpage moves to add bllog page where
-you can a blog which will be added in the blogs section.
-     You can also contact the admin by the contact page whose link is in the homepage.All of its data is saved in backend.
-Then on clicking the contacts button on left side all the different coooontacts are listed
-in tabular format.on clicking the button next to each contact the webpage takes to the export facilty where a form is present which 
-convert your data into pdf format.
+    I have made a travel agency website through PHP and MySQL.
+    
+1. On the homepage the first thing is a big carousel of 3 images.Below which there is some text about the website and a link to about page.
+
+2. Below the About section a carousel of 5 pages with some text about the packages.
+
+3. On scrolling down there are 3 recent blogs by the admin are displayed and a button which takes to the blogs page.
+
+4. Below that is the footer with a button to contact form.
+
+---------------------Admin section -----------------------------------
+
+5. There is a side bar on the homeapge which takes to the login form if the admin is not logged in or directly to the admin panel.
+
+6. In the admin panel there two main sections blogs section which is currently displayed and a contacts section.In the blog section there is a add blog button and all the blogs and in the contacts section there is all the contacts who messaged.
+
+7. On clicking on the button next to each row, you are taken to a message page where you can message the typing the subject ,content etc details in the form and this information will automatically be MAILED to the person in PDF FORMAT.
+
+8. In the blogs section you can click on any blog and see the full block in new page and you can also add a new blog and that will also be added to the website's blog section.
+
