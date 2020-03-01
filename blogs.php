@@ -1,93 +1,125 @@
-<?php session_start();
-   ini_set('display_errors', 1);
-   ini_set('display_startup_errors', 1);
-   error_reporting(E_ALL);
-   include_once('includes/connection.php');
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
+<?php
 
-    $error = "";
-    $myusername = mysqli_real_escape_string($db,$_POST['username']);
-    $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      // username and password sent from form 
-        if(!isset($myusername) || trim($myusername) == '')
-        {
-            $error = "please enter your name.<br>";
-        }
-        if(!isset($mypassword) || trim($mypassword) == '')
-        {
-            $error = $error."please enter your email address.<br>";
-        }
-        if(empty($error))
-        {
-           
-            $sql = "SELECT id FROM login_table WHERE username='$myusername' AND password ='$mypassword' ";
-            $result = mysqli_query($db,$sql);
+  include('checking_session.php');
+
+  include_once('includes/connection.php');
+
+    if(isset($_POST['datebtn']))
+    {
+        $sql = "SELECT * FROM blogs ORDER BY date DESC";
+       
+    }
+    
+    else if(isset($_POST['popularbtn']))
+    {
+        $sql = "SELECT * FROM blogs ORDER BY title";
+  
+    }
+    else
+    {
+         $sql = "SELECT * FROM blogs ORDER BY date DESC";
+    }
+  $result = mysqli_query($db,$sql);
+  $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Didact+Gothic|Fredoka+One|Great+Vibes|Libre+Baskerville|Lobster+Two|Playfair+Display|Righteous|Zilla+Slab&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="extra.CSS">
+    
+    <style>
             
-            if($result)
-            {
-                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-                
-                $count = mysqli_num_rows($result);
-                
-                if($count == 1) {
-                    $_SESSION['id'] = $row['id'];
-                    $_SESSION['login_user'] = $myusername;
-                    header("location: admin_panel.php");
-                }else {
-                    $error = "Your Login Name or Password is invalid";
-                }
-            }
-        }
-   } 
+.sort-div
+    {
+        background-color:transparent;
+        font-size:1.5em;
+        z-index:3333;
+      
+    }
+    
+.sort-div span
+    {
+        color:orange;
+        font-weight:bold;
+        padding-left:10px;
+    }
 
-?> 
-<html>
-    <head>
-        <title>login page</title>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="HTML,CSS">
-        <meta name="author" content="Aditya shrivastava">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Comfortaa|Cookie|Dosis|Great+Vibes|Noto+Serif+SC|Playfair+Display:400,800|Raleway|Righteous|Uncial+Antiqua&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="login.css">
-    </head>
-    <body>
-        <div class="full">
-            <div class="overlay"></div>
-                <form method="POST">
-                    <div id="text">WELCOME</div>
-                    
-                    <div id="etext">
-                        <input type="text" name="username" placeholder="Username"> <br>
-                    </div>
-                    <div id="pass">
-                      <input type="password" name="password" placeholder="Password"> <br>
-                    </div>
-                    <div id="rem">
-                        <input type="checkbox" id="check" placeholder="REMEMBER ME">
-                        <span for="checkbox">REMEMBER ME</label>         
-                    </div>
-                    <button id="login">LOGIN</button>
-                </form>
-                
-            </div>
-            <div class="mess" style="position: absolute;
-                bottom: 5vh;
-                left:10%;
-                padding:2vw;
-                width:80%;
-                display:<?php if(empty($error)){echo "none";} else{echo "block";} ?>;
-                text-align:center;
-                background-color: brown;
-                font-size: 2em;">
-                <?php if(!empty($error)) { ?>
-                    <?php echo $error; ?>
-                <?php } ?>
-            </div>
-        </div>
-        <script type="text/JavaScript">
+    </style>
+    
+    <title>Blogs</title>
+  </head>
+  <body>
+    
+    <div class="topnav">
+        <span>TRAVEL HUB</span>
+    </div>
+
+
+    <!-- ----------------------------------------------------------------------------
+        circles of the page for design-->
+
+    <div class="blog-circle1">
+    </div>
+    <div class="blog-circle2">
+    </div>
+    
+  
+    
+    
+    <!-- ----------------------------------------------------------------------------
+        blogs of the page for design-->
         
-        </script>
-    </body>
+    <div id="blog-full">
+          
+    
+    <form type="submit" class="sort-div" method="POST">
+        <span>SORT BY :</span>
+        <button id="datebtn" class="btn btn-primary" name="datebtn">date</button>
+        <button id="popularbtn" class="btn btn-primary" name="popularbtn">popular</button>
+    </form>
+
+        <p class="heads">SOME RECENT BLOGS</p>
+
+      <div class="container">
+        <div class="row">
+          <?php foreach ($result as $r) { ?>
+            <a href="blogpage.php?id=<?php echo $r['blog_id']; ?>" class="blogs col-md-4">
+              <div class="cover">
+                  <div class="blog-img">
+                      
+                  </div>
+
+                  </div>
+                  <div class="date"><?php echo date('l jS',$r['date']); ?></div>
+                <div class="blog-body">
+                    <div class="blog-title"><?php echo $r['title']; ?></div>
+                    <p class="author-det">
+                        <span><?php echo $r['author']; ?></span> <br>
+                        <?php echo $r['details']; ?>
+                    </p>
+                </div>
+          </a>
+          <?php } ?>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+  </body>
+  
 </html>
