@@ -1,7 +1,7 @@
 <?php
    $servername = "localhost";
    $username = "root";
-   $password = "mysql_Adi29";
+   $password = "";
    $dbname = "travel hub";
    
    // Create connection
